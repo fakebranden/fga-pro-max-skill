@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  validate-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Schema validation
+        run: node scripts/validate-schema.mjs
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Verify version matches skill.json
+        run: |
+          SKILL_VERSION=$(node -e "console.log(require('./skill.json').version)")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [ "$SKILL_VERSION" != "$TAG_VERSION" ]; then
+            echo "::error::skill.json version ($SKILL_VERSION) != tag version ($TAG_VERSION)"
+            exit 1
+          fi
+
+      - name: Verify version matches version.json
+        run: |
+          VERSION_JSON=$(node -e "console.log(require('./version.json').version)")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [ "$VERSION_JSON" != "$TAG_VERSION" ]; then
+            echo "::error::version.json version ($VERSION_JSON) != tag version ($TAG_VERSION)"
+            exit 1
+          fi
+
+      - name: Generate changelog excerpt
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          node -e "
+            const v = require('./version.json');
+            const entry = v.changelog[v.version];
+            if (!entry) { console.error('No changelog entry for', v.version); process.exit(1); }
+            console.log('## ' + v.version + ' — Phase ' + entry.phase + '');
+            console.log('');
+            console.log('Released ' + entry.date);
+            console.log('');
+            entry.changes.forEach(c => console.log('- ' + c));
+          " > release-notes.md
+          cat release-notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          body_path: release-notes.md
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, 'alpha') || contains(steps.version.outputs.version, 'beta') }}

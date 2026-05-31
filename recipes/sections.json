@@ -1,0 +1,50 @@
+{
+  "$schema": "../recipes.schema.json",
+  "version": "0.1.0",
+  "phase": 1,
+  "status": "placeholder",
+  "filledInPhase": 2,
+  "description": "Per-section recipe table — which library wins for which section, with fallbacks. Filled in Phase 2 (task #66). Phase 1 ships the schema only.",
+  "sections": {
+    "hero-video": {
+      "default": "vendored:hero-video",
+      "fallback": null,
+      "vendoredReason": "Full control over autoplay + muted + playsInline + posterFrame logic. Critical to LCP."
+    },
+    "hero-animated": {
+      "default": "phase2:tbd",
+      "fallback": "phase2:tbd"
+    },
+    "features-grid": {
+      "default": "phase2:tbd",
+      "fallback": "phase2:tbd"
+    },
+    "testimonials": {
+      "default": "phase2:tbd",
+      "fallback": "phase2:tbd"
+    },
+    "faq": {
+      "default": "vendored:faq-accordion",
+      "fallback": null,
+      "vendoredReason": "AEO-critical — schema markup + visible-text Q&A pairing must be controlled. Never delegated."
+    },
+    "section-template": {
+      "default": "phase2:tbd",
+      "fallback": null
+    },
+    "loader": {
+      "default": "phase2:tbd",
+      "fallback": "vendored:spinner"
+    },
+    "booking-form": {
+      "default": "vendored:booking-form",
+      "fallback": null,
+      "vendoredReason": "A2P-compliance critical — SmsConsent + audit-trail POST + tagging convention. Build-blocking enforcement."
+    }
+  },
+  "conflictResolution": {
+    "policy": "recipe-table-wins",
+    "tiebreaker": "lexicographic library order (aceternity < componentry < cult-ui < dotmatrix < skiper-ui < styleui < watermelon)",
+    "documentation": "./README.md"
+  }
+}

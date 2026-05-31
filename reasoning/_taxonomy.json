@@ -1,0 +1,61 @@
+{
+  "$schema": "./_taxonomy.schema.json",
+  "version": "0.1.0",
+  "description": "Niche taxonomy matcher — shared with harvest-niche-playbooks.ts in fga-ai-demo. ALWAYS edit both files in lockstep.",
+  "niches": [
+    {
+      "slug": "lounge",
+      "matches": ["lounge", "hookah", "cigar lounge", "vip lounge", "rooftop lounge", "speakeasy"],
+      "examples": ["Bronx Havana Room", "Five Bucks Drinkery"],
+      "localBusinessSubtype": "BarOrPub"
+    },
+    {
+      "slug": "restaurant-bar",
+      "matches": ["restaurant", "bar", "gastropub", "brewpub", "tavern", "eatery", "kitchen", "dining"],
+      "examples": ["Bronx Havana Cafe"],
+      "localBusinessSubtype": "Restaurant"
+    },
+    {
+      "slug": "mobile-food-truck",
+      "matches": ["food truck", "coffee truck", "drink truck", "mobile vendor", "mobile coffee", "mobile food", "pop-up", "street food"],
+      "examples": ["Travelin' Tom's Coffee"],
+      "localBusinessSubtype": "FoodEstablishment"
+    },
+    {
+      "slug": "appliance-retail",
+      "matches": ["appliance", "home goods", "white-goods", "retail store", "appliance plug", "kitchen appliance", "home appliance"],
+      "examples": ["The Appliance Plug"],
+      "localBusinessSubtype": "HomeGoodsStore"
+    },
+    {
+      "slug": "agency-b2b",
+      "matches": ["agency", "marketing agency", "b2b services", "consultancy", "studio", "creative agency", "digital agency"],
+      "examples": ["Flying Goat Agency"],
+      "localBusinessSubtype": "ProfessionalService"
+    },
+    {
+      "slug": "med-spa-aesthetic",
+      "matches": ["med spa", "medical spa", "aesthetic clinic", "botox", "dermatology", "skin clinic", "anti-aging", "injectables"],
+      "examples": [],
+      "localBusinessSubtype": "HealthAndBeautyBusiness"
+    },
+    {
+      "slug": "plumber-hvac",
+      "matches": ["plumber", "plumbing", "hvac", "ac repair", "air conditioning", "drain cleaning", "water heater", "heating cooling"],
+      "examples": [],
+      "localBusinessSubtype": "Plumber"
+    },
+    {
+      "slug": "auto-detail-mobile",
+      "matches": ["mobile detailing", "car wash", "ceramic coating", "auto detail", "car detail", "paint correction"],
+      "examples": [],
+      "localBusinessSubtype": "AutomotiveBusiness"
+    },
+    {
+      "slug": "barber-salon",
+      "matches": ["barber", "salon", "hair salon", "beauty bar", "hair studio", "barbershop", "stylist"],
+      "examples": [],
+      "localBusinessSubtype": "BeautySalon"
+    }
+  ]
+}

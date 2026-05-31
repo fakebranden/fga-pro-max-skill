@@ -1,0 +1,72 @@
+{
+  "name": "fga-pro-max",
+  "version": "0.1.0",
+  "displayName": "FGA Pro Max",
+  "description": "Site-generation taste layer for Flying Goat Agency. Niche-tuned, brand-kit-locked, GHL+A2P-wired marketing sites for managed-service clients.",
+  "author": {
+    "name": "Flying Goat Agency",
+    "url": "https://flyinggoatagency.com",
+    "email": "info@flyinggoatagency.com"
+  },
+  "homepage": "https://github.com/fakebranden/fga-pro-max-skill",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakebranden/fga-pro-max-skill.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "claude-skill",
+    "site-generation",
+    "marketing-site",
+    "shadcn-registry",
+    "design-tokens",
+    "ghl",
+    "a2p-sms",
+    "vercel",
+    "flying-goat-agency"
+  ],
+  "skill": {
+    "entryPoint": ".claude/skills/fga-pro-max/SKILL.md",
+    "activation": {
+      "triggers": [
+        "marketing site",
+        "landing page",
+        "client site",
+        "brand kit",
+        "build a site",
+        "generate a site",
+        "build a landing page",
+        "fga-pro-max",
+        "flying goat marketing site"
+      ],
+      "niches": [
+        "lounge",
+        "restaurant-bar",
+        "mobile-food-truck",
+        "appliance-retail",
+        "agency-b2b",
+        "med-spa-aesthetic",
+        "plumber-hvac",
+        "auto-detail-mobile",
+        "barber-salon"
+      ],
+      "contextPaths": [
+        "employee-hub/sites",
+        "employee-hub/harvest/clients",
+        "employee-hub/marketing-sites",
+        "fga-marketing-template",
+        "fga-site-*"
+      ]
+    },
+    "substrates": {
+      "components": "registry/manifest.json",
+      "tokens": "tokens/",
+      "reasoning": "reasoning/"
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "claude-code": ">=1.0.0"
+  }
+}

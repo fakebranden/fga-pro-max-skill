@@ -1,0 +1,77 @@
+{
+  "$schema": "../tokens.schema.json",
+  "id": "fga-canonical",
+  "name": "FGA Canonical",
+  "description": "Flying Goat Agency's own brand kit, packaged as named-token CSS variables. Used as fallback when no reference style is supplied. Source: reference_fga_brand_kit vault memory.",
+  "source": "https://flyinggoatagency.com",
+  "extractedAt": "2026-05-31",
+  "extractionMethod": "manual-seed",
+  "tokens": {
+    "colors": {
+      "--color-jet-anchor": {
+        "value": "#252525",
+        "role": "Primary dark surface — page backgrounds, footer, hero overlays",
+        "context": "near-black anchor"
+      },
+      "--color-paper-base": {
+        "value": "#FFFFFF",
+        "role": "Primary light surface — section backgrounds, card fills",
+        "context": "white"
+      },
+      "--color-electric-canary": {
+        "value": "#f6eb1e",
+        "role": "Signature brand accent — CTAs, badges, key highlights ONLY",
+        "context": "high-energy yellow, sparingly used to retain power"
+      },
+      "--color-graphite-body": {
+        "value": "#646464",
+        "role": "Body text on light surfaces",
+        "context": "secondary text"
+      },
+      "--color-blaze-alt": {
+        "value": "#FF0604",
+        "role": "Alternate accent for emergency/urgency framings — never paired with electric-canary in same section",
+        "context": "red alert"
+      },
+      "--color-shadow-surface": {
+        "value": "#313131",
+        "role": "Section backgrounds on dark mode, card fills on dark surfaces",
+        "context": "elevated dark surface"
+      },
+      "--color-divider-soft": {
+        "value": "#EEEEEE",
+        "role": "Dividers, low-emphasis borders, hairlines",
+        "context": "subtle"
+      }
+    },
+    "typography": {
+      "--font-display-anton": {
+        "value": "\"Anton\", \"Impact\", sans-serif",
+        "role": "Display headlines — hero, section eyebrows, wordmarks",
+        "weights": [400],
+        "sizes": "up to 300px"
+      },
+      "--font-body-poppins": {
+        "value": "\"Poppins\", system-ui, sans-serif",
+        "role": "Body copy, navigation, form labels",
+        "weights": [400, 600],
+        "sizes": "12px / 14px / 16px"
+      }
+    },
+    "spacing": {
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(16px, 2vw, 24px)",
+      "--space-section": "clamp(56px, 7vw, 120px)"
+    },
+    "radii": {
+      "--radius-pill": "9999px",
+      "--radius-card": "8px",
+      "--radius-tight": "2px"
+    }
+  },
+  "antiPatterns": [
+    "Never use --color-electric-canary for large surface fills — it becomes oppressive past ~30% of viewport",
+    "Never use --color-blaze-alt and --color-electric-canary in the same section",
+    "Body text must NOT use --font-display-anton (Anton has no readable italic; use Poppins for body)"
+  ]
+}

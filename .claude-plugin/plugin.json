@@ -1,0 +1,9 @@
+{
+  "name": "fga-pro-max",
+  "version": "0.1.0",
+  "description": "Site-generation taste layer for Flying Goat Agency. Auto-activates on marketing-site/landing/brand-kit prompts in the fga-marketing-template + fga-ai-demo employee-hub contexts.",
+  "type": "skill",
+  "entryPoint": ".claude/skills/fga-pro-max/SKILL.md",
+  "homepage": "https://github.com/fakebranden/fga-pro-max-skill",
+  "license": "MIT"
+}

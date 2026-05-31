@@ -1,0 +1,66 @@
+{
+  "$schema": "../registry.schema.json",
+  "version": "0.1.0",
+  "phase": 1,
+  "status": "placeholder",
+  "filledInPhase": 2,
+  "description": "shadcn-registry deps pinned by URL + commit SHA + license. Filled in Phase 2 (task #66). Phase 1 ships the schema + library catalog only.",
+  "libraries": {
+    "cult-ui": {
+      "homepage": "https://cult-ui.com",
+      "registry": "https://cult-ui.com/r",
+      "license": "TBD-phase-2-audit",
+      "tier": "default-bundle",
+      "rationale": "Marketing UI tier ships 129 premium blocks + 18 starter templates — closest fit to FGA niche marketing sites.",
+      "pinnedSha": "phase2:tbd"
+    },
+    "aceternity": {
+      "homepage": "https://ui.acternity.com",
+      "registry": "https://ui.acternity.com/registry",
+      "license": "TBD-phase-2-audit",
+      "tier": "default-bundle",
+      "rationale": "200+ animated React components — the canonical motion library. 'Internet's most-stolen UI library.'",
+      "pinnedSha": "phase2:tbd"
+    },
+    "skiper-ui": {
+      "homepage": "https://skiper-ui.com",
+      "registry": "https://skiper-ui.com/r",
+      "license": "TBD-phase-2-audit",
+      "tier": "on-demand",
+      "rationale": "73+ uncommon shadcn components — smoke hero, KAINT-style display, member-bubble pills.",
+      "pinnedSha": "phase2:tbd"
+    },
+    "watermelon": {
+      "homepage": "https://ui.watermelon.sh",
+      "registry": "https://ui.watermelon.sh/r",
+      "license": "TBD-phase-2-audit-BLOCKER",
+      "tier": "on-demand",
+      "rationale": "260+ production-ready components, React 19 + Tailwind v4 + Framer Motion. License audit must complete before Phase 2 exit.",
+      "pinnedSha": "phase2:tbd"
+    },
+    "styleui": {
+      "homepage": "https://styleui.dev",
+      "registry": "https://styleui.dev/r",
+      "license": "TBD-phase-2-audit-BLOCKER",
+      "tier": "on-demand",
+      "rationale": "Whole-section templates (Notio landing, Axis CRM). License audit must complete before Phase 2 exit.",
+      "pinnedSha": "phase2:tbd"
+    },
+    "componentry": {
+      "homepage": "https://componentry.fun",
+      "registry": "https://componentry.fun/r",
+      "license": "TBD-phase-2-audit",
+      "tier": "on-demand",
+      "rationale": "40+ free copy-paste by Harsh Jadhav — magnet lines, magnetic dock, scroll velocity, dither gradient.",
+      "pinnedSha": "phase2:tbd"
+    },
+    "dotmatrix": {
+      "homepage": "https://dotmatrix.zzzzshawn.cloud",
+      "registry": "https://dotmatrix.zzzzshawn.cloud/r",
+      "license": "TBD-phase-2-audit",
+      "tier": "on-demand",
+      "rationale": "55+ dot-matrix loaders — perfect for AI-thinking / form-submit states.",
+      "pinnedSha": "phase2:tbd"
+    }
+  }
+}

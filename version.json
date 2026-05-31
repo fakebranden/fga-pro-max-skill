@@ -1,0 +1,22 @@
+{
+  "version": "0.1.0",
+  "released": "2026-05-31",
+  "phase": 1,
+  "phaseName": "Scaffolding",
+  "status": "alpha",
+  "changelog": {
+    "0.1.0": {
+      "date": "2026-05-31",
+      "phase": 1,
+      "changes": [
+        "Initial scaffold — skill.json, SKILL.md, activation triggers",
+        "Directory structure for all 3 substrates (registry/, tokens/, reasoning/)",
+        "Seed FGA-canonical token set (jet-anchor, paper-base, electric-canary, etc.)",
+        "9 niche reasoning rule stubs (content fleshed in Phase 4)",
+        "8 reference style seed stubs (content extracted in Phase 3)",
+        "Release pipeline with JSON schema validation",
+        "Contributor docs (CLAUDE.md, ARCHITECTURE.md, ROADMAP.md)"
+      ]
+    }
+  }
+}

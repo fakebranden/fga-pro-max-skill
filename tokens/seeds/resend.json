@@ -1,0 +1,26 @@
+{
+  "$schema": "../../tokens.schema.json",
+  "id": "resend",
+  "name": "Resend",
+  "description": "Developer tools reference — monospace accents, sharp grid, dark-first.",
+  "source": "https://resend.com",
+  "extractedAt": "2026-05-31",
+  "extractionMethod": "stub-phase-1",
+  "status": "stub",
+  "phase": 1,
+  "filledInPhase": 3,
+  "tokens": {
+    "colors": {
+      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://resend.com"
+    },
+    "typography": {
+      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+    },
+    "spacing": {
+      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+    }
+  },
+  "antiPatterns": [
+    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+  ]
+}
