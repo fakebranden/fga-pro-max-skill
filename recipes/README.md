@@ -50,3 +50,43 @@ Build fails if these are replaced with library versions.
 `sections.json` ships with **placeholders** for everything that's not
 vendored. Phase 2 (task #66) replaces `phase2:tbd` with actual library
 references after the registry manifest is locked.
+
+## Conflict resolution table
+
+When the recipe table is silent — two libraries both expose a component
+matching the same logical section name and no `default` / `fallback`
+entry pins one — apply the **lexicographic library order**. The
+earlier-named library wins.
+
+| Rank | Library     | Tier            |
+|------|-------------|-----------------|
+| 1    | aceternity  | default-bundle  |
+| 2    | componentry | on-demand       |
+| 3    | cult-ui     | default-bundle  |
+| 4    | dotmatrix   | on-demand       |
+| 5    | skiper-ui   | on-demand       |
+| 6    | styleui     | on-demand       |
+| 7    | watermelon  | on-demand       |
+
+Rule of thumb: alphabetical, no exceptions, no override knob. Pinning a
+preference belongs in `sections.json` — not in the tiebreaker.
+
+Where this rule fires:
+
+1. Two libraries name the same component (e.g. both `aceternity` and
+   `cult-ui` ship `marquee`) AND the recipe is silent.
+2. Phase 5 / Phase 6 helper code resolves a free-form Claude prompt to a
+   library token without a section context.
+
+Where this rule does NOT fire:
+
+- When the recipe table specifies `default` or `fallback` — the recipe
+  wins unconditionally.
+- When the section is vendored — `vendored:<name>` always wins, by
+  design (see "Vendored-must-own" above).
+
+The lexicographic order is canonical and lives in two places that MUST
+stay in sync: this table and
+`sections.json` → `conflictResolution.tiebreaker`. Schema validation
+enforces the recipe-table version; this README is the human-readable
+contract.

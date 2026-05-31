@@ -1,10 +1,28 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "released": "2026-05-31",
-  "phase": 1,
-  "phaseName": "Scaffolding",
+  "phase": 4,
+  "phaseName": "Substrates filled (Phases 2 + 3 + 4)",
   "status": "alpha",
   "changelog": {
+    "0.2.0": {
+      "date": "2026-05-31",
+      "phase": 4,
+      "changes": [
+        "Phase 2 — Component substrate: pinned SHAs for all 7 libraries (cult-ui MIT, aceternity Proprietary-EndProduct, skiper-ui MIT, watermelon MIT, styleui MIT, componentry MIT w/ GSAP caveat, dotmatrix Proprietary-EndProduct). License audit gates passed for watermelon + styleui. Recipe table resolved against live registries — every component name verified against actual library catalogs (substitutions documented in per-section notes).",
+        "Phase 2 — scripts/install-registry-deps.mjs: niche-aware shadcn-registry installer with idempotency tracking, --dry-run mode, streaming pnpm output.",
+        "Phase 2 — registry/LICENSES.md: full license audit doc with per-library terms + Phase 2 exit-gate verdicts.",
+        "Phase 2 — recipes/README.md: lexicographic conflict resolution table (aceternity < componentry < cult-ui < dotmatrix < skiper-ui < styleui < watermelon).",
+        "Phase 3 — Design taste layer: 8 reference seeds filled with curated tokens (Stripe purple gradient, Apple SF Pro + true black, ElevenLabs cyan/violet glow, Resend cream+Geist mono, Linear violet dark canvas, Sweetgreen earth+vegetal, Blue Bottle navy+cream, Eleven Madison Park emerald+serif). 7+ colors / 2+ fonts / 4+ spacing+radii / 4+ anti-patterns each.",
+        "Phase 3 — tokens/tokens.schema.json: JSON Schema draft-07 with key-pattern enforcement on --color-<adj>-<noun> + --font-(display|body|mono|accent)-<name>.",
+        "Phase 3 — scripts/extract-tokens.mjs: Playwright extractor with HSL→adjective-noun heuristic. Lazy-imports playwright; graceful fail w/ install instructions if missing.",
+        "Phase 3 — tokens/README.md: token naming dictionary appended (color buckets, hue map, typography slots, spacing+radii pool, 4 cross-seed rules).",
+        "Phase 4 — Niche reasoning: 9 niches filled w/ concrete decision-rules (do/never/typography mood/key effect/copy patterns/CTA patterns/anti-patterns/A2P variants/token affinity). Bronx Havana Room + Five Bucks (lounge), Bronx Havana Cafe (restaurant-bar), Travelin Tom's (mobile-food-truck), Appliance Plug (appliance-retail), FGA self (agency-b2b), plus med-spa-aesthetic, plumber-hvac, auto-detail-mobile, barber-salon.",
+        "Phase 4 — _PROMOTE.md: one-off rule promotion path doc (operator marks rule → monthly review → bar=worked-on-≥2-sites → demotion path if it stops working).",
+        "Token-budget check: every niche file ~1,265-1,505 tokens — half-budget headroom for future promotions.",
+        "Naming + paths corrected: aceternity (not 'acternity'), skiper-ui /registry/ (not /r/), watermelon registry.watermelon.sh (not ui.watermelon.sh/r), cult-ui www-prefix (not apex)."
+      ]
+    },
     "0.1.0": {
       "date": "2026-05-31",
       "phase": 1,

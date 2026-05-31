@@ -1,66 +1,95 @@
 {
   "$schema": "../registry.schema.json",
-  "version": "0.1.0",
-  "phase": 1,
-  "status": "placeholder",
+  "version": "0.2.0",
+  "phase": 2,
+  "status": "pinned",
   "filledInPhase": 2,
-  "description": "shadcn-registry deps pinned by URL + commit SHA + license. Filled in Phase 2 (task #66). Phase 1 ships the schema + library catalog only.",
+  "description": "shadcn-registry deps pinned by URL + commit SHA + license. Phase 2 (task #66) audit complete — all 7 libraries verified, licenses confirmed.",
+  "lastVerified": "2026-05-31",
   "libraries": {
     "cult-ui": {
-      "homepage": "https://cult-ui.com",
-      "registry": "https://cult-ui.com/r",
-      "license": "TBD-phase-2-audit",
+      "homepage": "https://www.cult-ui.com",
+      "registry": "https://www.cult-ui.com/r",
+      "sourceRepo": "https://github.com/nolly-studio/cult-ui",
+      "license": "MIT",
       "tier": "default-bundle",
-      "rationale": "Marketing UI tier ships 129 premium blocks + 18 starter templates — closest fit to FGA niche marketing sites.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "Marketing UI tier ships 129 premium blocks + 18 starter templates — closest fit to FGA niche marketing sites. Free MIT-licensed core remains the substrate; Cult Pro premium tier is optional and NOT depended on.",
+      "pinnedSha": "a3308bad8496b036adf2fbd29d50b877fb3c5987",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://www.cult-ui.com/r/<name>.json",
+      "notes": "Apex domain redirects 308 -> www. Always use www in install commands. Component names verified against live registry.json (157 entries)."
     },
     "aceternity": {
-      "homepage": "https://ui.acternity.com",
-      "registry": "https://ui.acternity.com/registry",
-      "license": "TBD-phase-2-audit",
+      "homepage": "https://ui.aceternity.com",
+      "registry": "https://ui.aceternity.com/registry",
+      "sourceRepo": "https://github.com/manuarora700/ui.aceternity",
+      "license": "Proprietary-EndProduct",
       "tier": "default-bundle",
-      "rationale": "200+ animated React components — the canonical motion library. 'Internet's most-stolen UI library.'",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "200+ animated React components — the canonical motion library. Components allowed in unlimited paid client end-products per license terms; redistribution of source forbidden.",
+      "pinnedSha": "2efc8b766522ad9c5a1d5db68fdf0d321cbca67a",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://ui.aceternity.com/registry/<name>.json",
+      "notes": "Proprietary license, but explicitly permits use in client end-products (sold, licensed, freely distributed). Source repo has no LICENSE file — terms live at https://ui.aceternity.com/licence. URL spelling is 'aceternity' (verified). Phase 1 manifest had typo 'acternity' — corrected."
     },
     "skiper-ui": {
       "homepage": "https://skiper-ui.com",
-      "registry": "https://skiper-ui.com/r",
-      "license": "TBD-phase-2-audit",
+      "registry": "https://skiper-ui.com/registry",
+      "sourceRepo": "https://github.com/anshxs/legacy-skiper-ui",
+      "license": "MIT",
       "tier": "on-demand",
-      "rationale": "73+ uncommon shadcn components — smoke hero, KAINT-style display, member-bubble pills.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "73+ uncommon shadcn components by Gxuri (Gurvinder Singh). Component slugs are numbered (skiper1..skiper73). 24+ free + 54+ premium tier. Free tier only is used in default FGA pipeline.",
+      "pinnedSha": "aa0e80f59921884e2ba553a0cd1ddf87fe03f7a2",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://skiper-ui.com/registry/<name>.json",
+      "notes": "Live registry endpoint is /registry/ (verified 200), NOT /r/ (Phase 1 manifest had wrong path — corrected). Public source mirror is legacy-skiper-ui (MIT); the live production site builds from a non-public fork. SHA tracks the public mirror. Premium components require purchase; FGA pipeline only installs free skiperN slugs."
     },
     "watermelon": {
       "homepage": "https://ui.watermelon.sh",
-      "registry": "https://ui.watermelon.sh/r",
-      "license": "TBD-phase-2-audit-BLOCKER",
+      "registry": "https://registry.watermelon.sh",
+      "sourceRepo": "https://github.com/WatermelonCorp/watermellon-registry",
+      "license": "MIT",
       "tier": "on-demand",
-      "rationale": "260+ production-ready components, React 19 + Tailwind v4 + Framer Motion. License audit must complete before Phase 2 exit.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "963 production-ready components, React 19 + Tailwind v4 + Framer Motion. Bento, testimonial, marquee, hero1, feature variants all present. Strongest fallback when cult-ui lacks a named-section component.",
+      "pinnedSha": "4f7d8a035489eef9e99986eebd1ae6585ba604a7",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://registry.watermelon.sh/<name>.json",
+      "notes": "PHASE 2 EXIT GATE — PASSED. MIT license confirmed via GitHub repo LICENSE file + spdx_id API. Registry URL is registry.watermelon.sh (subdomain), NOT ui.watermelon.sh/r as Phase 1 manifest had — corrected. Live registry verified to expose 963 component entries."
     },
     "styleui": {
       "homepage": "https://styleui.dev",
       "registry": "https://styleui.dev/r",
-      "license": "TBD-phase-2-audit-BLOCKER",
+      "sourceRepo": "https://github.com/heyfabrika/styleui",
+      "license": "MIT",
       "tier": "on-demand",
-      "rationale": "Whole-section templates (Notio landing, Axis CRM). License audit must complete before Phase 2 exit.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "Whole-section templates — notio (hero + features + pricing + footer), axis (hero + features + tools + pricing + testimonials + footer). Used for section-template recipe.",
+      "pinnedSha": "3da5706548882038f448a8ff4e570680a06b25c4",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://styleui.dev/r/<name>.json",
+      "notes": "PHASE 2 EXIT GATE — PASSED. MIT license confirmed via GitHub repo + spdx_id API. Registry exposes 4 entries: animated-list, counter, notio, axis."
     },
     "componentry": {
-      "homepage": "https://componentry.fun",
-      "registry": "https://componentry.fun/r",
-      "license": "TBD-phase-2-audit",
+      "homepage": "https://www.componentry.fun",
+      "registry": "https://www.componentry.fun/r",
+      "sourceRepo": "https://github.com/harshjdhv/componentry",
+      "license": "MIT",
       "tier": "on-demand",
-      "rationale": "40+ free copy-paste by Harsh Jadhav — magnet lines, magnetic dock, scroll velocity, dither gradient.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "40+ free copy-paste components by Harsh Jadhav — magnet lines, magnetic dock, scroll velocity, dither gradient.",
+      "pinnedSha": "6a380875b505acd539617599e1d2c3d077706af5",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://www.componentry.fun/r/<name>.json",
+      "notes": "Componentry code itself is MIT, but two components (image-trail, layered-stack) depend on GSAP and inherit GSAP's commercial-use restrictions. FGA default install MUST NOT pull image-trail or layered-stack without a separate GSAP commercial license review."
     },
     "dotmatrix": {
       "homepage": "https://dotmatrix.zzzzshawn.cloud",
       "registry": "https://dotmatrix.zzzzshawn.cloud/r",
-      "license": "TBD-phase-2-audit",
+      "sourceRepo": "https://github.com/zzzzshawn/matrix",
+      "license": "Proprietary-EndProduct",
       "tier": "on-demand",
-      "rationale": "55+ dot-matrix loaders — perfect for AI-thinking / form-submit states.",
-      "pinnedSha": "phase2:tbd"
+      "rationale": "55+ dot-matrix loaders organized into square / circular / triangle / hex families (20 / 20 / 20 / 10). Perfect for AI-thinking / form-submit states.",
+      "pinnedSha": "cd979e1d41cc03a6d07306cdba96cf3a0e8ff7c0",
+      "lastVerified": "2026-05-31",
+      "registryUrlPattern": "https://dotmatrix.zzzzshawn.cloud/r/<name>.json",
+      "notes": "Custom proprietary license (NOT MIT despite open-source feel). Permits use in commercial and non-commercial products. Prohibits: redistributing components as a standalone library, sublicensing, reselling. GitHub spdx_id is NOASSERTION. FGA usage (install into client end-products only) is permitted. Component slugs use 'dotm-<shape>-<n>' format — e.g. dotm-square-2 displays as 'Pulse Ladder'."
     }
   }
 }

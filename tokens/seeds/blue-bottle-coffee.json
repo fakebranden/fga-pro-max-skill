@@ -1,26 +1,80 @@
 {
-  "$schema": "../../tokens.schema.json",
+  "$schema": "../tokens.schema.json",
   "id": "blue-bottle-coffee",
   "name": "Blue Bottle Coffee",
-  "description": "Craft coffee reference — navy + cream + minimal, editorial restraint, photography-led.",
+  "description": "Craft-coffee reference — signature deep navy on warm bone-cream, editorial restraint, photography-led storytelling. The brand's confidence comes from absence: enormous whitespace, one accent, never more.",
   "source": "https://bluebottlecoffee.com",
   "extractedAt": "2026-05-31",
-  "extractionMethod": "stub-phase-1",
-  "status": "stub",
-  "phase": 1,
-  "filledInPhase": 3,
+  "extractionMethod": "manual-curated",
   "tokens": {
     "colors": {
-      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://bluebottlecoffee.com"
+      "--color-bottle-anchor": {
+        "value": "#0B2E58",
+        "role": "Signature surface and text — deep navy that names the brand",
+        "context": "the Blue Bottle blue, used as primary text and hero anchor"
+      },
+      "--color-bone-cream": {
+        "value": "#F7F2E9",
+        "role": "Primary surface — page background, product card fills",
+        "context": "warm bone-cream, the slow-pour canvas"
+      },
+      "--color-paper-base": {
+        "value": "#FFFFFF",
+        "role": "Pure-white surface for product photography backdrops",
+        "context": "studio white, used only behind product imagery"
+      },
+      "--color-graphite-body": {
+        "value": "#3A4A5C",
+        "role": "Secondary body text on cream — desaturated cousin of bottle-anchor",
+        "context": "navy-slate, the supporting reading voice"
+      },
+      "--color-amber-accent": {
+        "value": "#B07A3C",
+        "role": "Optional accent — single-origin tasting notes, seasonal coffee callouts",
+        "context": "warm amber, used at most once per page"
+      },
+      "--color-fog-divider": {
+        "value": "#E5DFD2",
+        "role": "Hairline dividers, low-emphasis borders, product card outlines",
+        "context": "cream-shadow divider that disappears at scale"
+      },
+      "--color-shadow-surface": {
+        "value": "#EDE6D5",
+        "role": "Alternating section background — bean-storytelling sections",
+        "context": "deeper-warm cream for textural rhythm"
+      }
     },
     "typography": {
-      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+      "--font-display-serif": {
+        "value": "\"Tiempos Headline\", \"Söhne Breit\", Georgia, serif",
+        "role": "Display headlines — origin stories, hero, editorial titling",
+        "weights": [400, 500],
+        "sizes": "36px / 56px / 88px"
+      },
+      "--font-body-grotesk": {
+        "value": "\"Söhne\", \"Inter\", system-ui, sans-serif",
+        "role": "Body copy, product names, navigation, tasting notes",
+        "weights": [400, 500],
+        "sizes": "14px / 16px / 18px"
+      }
     },
     "spacing": {
-      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(20px, 2.5vw, 32px)",
+      "--space-loose": "clamp(48px, 6vw, 80px)",
+      "--space-section": "clamp(96px, 12vw, 200px)"
+    },
+    "radii": {
+      "--radius-tight": "2px",
+      "--radius-card": "4px",
+      "--radius-photo": "0px",
+      "--radius-pill": "9999px"
     }
   },
   "antiPatterns": [
-    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+    "Never use rounded corners on hero or product photography — Blue Bottle's photographic restraint requires sharp edges. Rounded photo treatments break the editorial character.",
+    "Never apply --color-amber-accent to UI chrome (buttons, links) — it earns its presence by appearing only in tasting-notes-storytelling moments. As a CTA color it breaks the navy-monopoly rule.",
+    "Whitespace must dominate — sections with content density above ~40% viewport coverage stop reading as Blue Bottle. The brand IS the breathing room.",
+    "Body copy must never use --font-display-serif — the serif lives at display sizes only. Serif body type reads as legacy magazine, not specialty coffee."
   ]
 }

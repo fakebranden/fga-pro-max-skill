@@ -1,26 +1,81 @@
 {
-  "$schema": "../../tokens.schema.json",
+  "$schema": "../tokens.schema.json",
   "id": "eleven-madison-park",
   "name": "Eleven Madison Park",
-  "description": "Fine dining reference — editorial typography, deep restraint, ceremonial space.",
+  "description": "Fine-dining reference — bone-cream and museum-green canvas with editorial serif at hero scale, ceremonial whitespace, near-zero color count. The brand earns its restraint; every element is intentional, nothing is decorative.",
   "source": "https://elevenmadisonpark.com",
   "extractedAt": "2026-05-31",
-  "extractionMethod": "stub-phase-1",
-  "status": "stub",
-  "phase": 1,
-  "filledInPhase": 3,
+  "extractionMethod": "manual-curated",
   "tokens": {
     "colors": {
-      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://elevenmadisonpark.com"
+      "--color-bone-cream": {
+        "value": "#F1ECE0",
+        "role": "Primary surface — page background, menu pages, hero base",
+        "context": "warm bone-cream with the faintest age tint, like aged paper"
+      },
+      "--color-emerald-anchor": {
+        "value": "#1F3A2E",
+        "role": "Primary text + ceremonial dark surfaces — menu covers, reservation chrome",
+        "context": "deep museum-green, the EMP signature color"
+      },
+      "--color-ink-body": {
+        "value": "#2A2A28",
+        "role": "Long-form body text on bone-cream — menu descriptions, philosophy text",
+        "context": "warm off-black with a touch of green to harmonize with emerald-anchor"
+      },
+      "--color-gold-restraint": {
+        "value": "#9F8753",
+        "role": "Editorial accent — section ornaments, hairline rules, special-occasion callouts",
+        "context": "muted antique gold, used at most once per page as ceremonial punctuation"
+      },
+      "--color-shadow-surface": {
+        "value": "#E5DECC",
+        "role": "Alternating section background — chef-stories, ingredient sourcing",
+        "context": "deeper-warm cream, the second-tone for slow rhythm"
+      },
+      "--color-fog-divider": {
+        "value": "#D8D1BD",
+        "role": "Hairline dividers, low-emphasis borders",
+        "context": "cream-shadow divider, near-invisible — supports without showing"
+      },
+      "--color-graphite-body": {
+        "value": "#5E5E5A",
+        "role": "Secondary body text — captions, dietary disclosures, footnotes",
+        "context": "warm grey calibrated for fine-print legibility on bone-cream"
+      }
     },
     "typography": {
-      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+      "--font-display-cardo": {
+        "value": "\"Cardo\", \"Tiempos Headline\", Garamond, serif",
+        "role": "Display headlines — hero, menu courses, philosophy titling",
+        "weights": [400, 700],
+        "sizes": "40px / 64px / 96px / 128px ceremonial hero"
+      },
+      "--font-body-grotesk": {
+        "value": "\"Söhne\", \"Inter\", system-ui, sans-serif",
+        "role": "Body copy, navigation, reservation labels, dietary callouts",
+        "weights": [400, 500],
+        "sizes": "13px / 15px / 17px"
+      }
     },
     "spacing": {
-      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(24px, 3vw, 40px)",
+      "--space-loose": "clamp(64px, 8vw, 120px)",
+      "--space-section": "clamp(120px, 16vw, 280px)"
+    },
+    "radii": {
+      "--radius-tight": "0px",
+      "--radius-card": "2px",
+      "--radius-photo": "0px",
+      "--radius-pill": "9999px"
     }
   },
   "antiPatterns": [
-    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+    "Never use rounded corners on photography, hero, or chrome — EMP's design philosophy is square-edged restraint. Soft corners read as casual hospitality, not fine dining.",
+    "Never use --color-gold-restraint as a button fill or surface color — it appears at most once per page as ceremonial punctuation (a hairline, an ornament). As a theme it becomes 90s-banquet-hall gold.",
+    "Whitespace must be ceremonial — sections with content density above ~30% viewport coverage stop reading as EMP. The luxury IS the space.",
+    "Body type must never use --font-display-cardo — Cardo at body sizes looks like an academic journal. Serif lives at hero scale only; body is always grotesk.",
+    "Avoid drop-shadows entirely — EMP separates layers with whitespace and cream-tone steps. Any shadow undercuts the museum-restraint character."
   ]
 }

@@ -1,26 +1,86 @@
 {
-  "$schema": "../../tokens.schema.json",
+  "$schema": "../tokens.schema.json",
   "id": "resend",
   "name": "Resend",
-  "description": "Developer tools reference — monospace accents, sharp grid, dark-first.",
+  "description": "Developer-tools reference — cream + plain-black canvas, monospace woven into headlines, sharp grid alignment, dark-first surfaces for marketing pages. The brand stays out of the way of the code samples.",
   "source": "https://resend.com",
   "extractedAt": "2026-05-31",
-  "extractionMethod": "stub-phase-1",
-  "status": "stub",
-  "phase": 1,
-  "filledInPhase": 3,
+  "extractionMethod": "manual-curated",
   "tokens": {
     "colors": {
-      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://resend.com"
+      "--color-paper-cream": {
+        "value": "#FDFDF9",
+        "role": "Primary light surface — light-mode pages, code-sample card fills",
+        "context": "warm cream, the soft alternative to pure white"
+      },
+      "--color-jet-anchor": {
+        "value": "#000000",
+        "role": "Primary text on cream, dark-mode background, hero anchor",
+        "context": "plain black, no warmth, no apology"
+      },
+      "--color-cloud-whisper": {
+        "value": "#FFFFFF",
+        "role": "Text on dark surfaces, button labels, inverted CTA fills",
+        "context": "pure white, only on black"
+      },
+      "--color-graphite-body": {
+        "value": "#555555",
+        "role": "Secondary body text, captions, supporting copy on cream",
+        "context": "mid-grey, calibrated for code-comment cadence"
+      },
+      "--color-ash-divider": {
+        "value": "#EBEBE6",
+        "role": "Hairline dividers, code-block borders on light surfaces",
+        "context": "cream-tinted divider that disappears into the page"
+      },
+      "--color-shadow-surface": {
+        "value": "#0A0A0A",
+        "role": "Elevated dark surface — modal backgrounds, dark-mode card fills",
+        "context": "near-black lifted just enough to register against jet-anchor"
+      },
+      "--color-amber-spark": {
+        "value": "#FF6F00",
+        "role": "Optional accent — status pings, send-confirmation moments, rare CTA highlight",
+        "context": "warm signal-orange, used as a punctuation mark not a theme"
+      }
     },
     "typography": {
-      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+      "--font-display-inter": {
+        "value": "\"Inter\", system-ui, sans-serif",
+        "role": "Display headlines and section titles — clean geometric default",
+        "weights": [500, 600, 700],
+        "sizes": "40px / 56px / 80px hero"
+      },
+      "--font-body-inter": {
+        "value": "\"Inter\", system-ui, sans-serif",
+        "role": "Body copy, navigation, labels",
+        "weights": [400, 500],
+        "sizes": "14px / 15px / 16px"
+      },
+      "--font-mono-geist": {
+        "value": "\"Geist Mono\", \"JetBrains Mono\", \"SF Mono\", monospace",
+        "role": "Code samples, inline tokens, API endpoints, hero monospace accents woven into headlines",
+        "weights": [400, 500],
+        "sizes": "12px / 13px / 14px"
+      }
     },
     "spacing": {
-      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(16px, 2vw, 24px)",
+      "--space-loose": "clamp(32px, 4vw, 48px)",
+      "--space-section": "clamp(64px, 8vw, 120px)"
+    },
+    "radii": {
+      "--radius-tight": "4px",
+      "--radius-card": "8px",
+      "--radius-code-block": "10px",
+      "--radius-pill": "9999px"
     }
   },
   "antiPatterns": [
-    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+    "Never use --color-amber-spark for surface fills — it earns its punch by appearing once per page max. As a theme it loses signal value entirely.",
+    "Display headlines must blend --font-display-inter and --font-mono-geist in the same line at least once on hero — the mono-in-sans cadence is the brand's signature move. A page with no mono accent does not read as Resend.",
+    "Never use --color-paper-cream and --color-cloud-whisper in the same section — they are opposite-mode tokens. Cream is for light pages, white is for text on black.",
+    "Avoid drop-shadows entirely — Resend separates surfaces with hairline borders and color steps. Soft shadows undercut the sharp-grid character."
   ]
 }

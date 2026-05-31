@@ -1,26 +1,80 @@
 {
-  "$schema": "../../tokens.schema.json",
+  "$schema": "../tokens.schema.json",
   "id": "apple",
   "name": "Apple",
-  "description": "Premium product reference — minimal type, generous space, focal hero photography.",
+  "description": "Premium product reference — pure white surface, true black anchor, SF Pro display at scale. Focal product photography carries the narrative; type and color stay disciplined. Restraint is the brand.",
   "source": "https://apple.com",
   "extractedAt": "2026-05-31",
-  "extractionMethod": "stub-phase-1",
-  "status": "stub",
-  "phase": 1,
-  "filledInPhase": 3,
+  "extractionMethod": "manual-curated",
   "tokens": {
     "colors": {
-      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://apple.com"
+      "--color-paper-base": {
+        "value": "#FFFFFF",
+        "role": "Primary light surface — page background, product hero base",
+        "context": "pure white, uncompromised"
+      },
+      "--color-jet-anchor": {
+        "value": "#000000",
+        "role": "True black sections — pro-product reveals, dark mode pages",
+        "context": "absolute black, used for theatrical contrast"
+      },
+      "--color-graphite-body": {
+        "value": "#1D1D1F",
+        "role": "Primary text on white — near-black with the slightest warmth",
+        "context": "Apple signature off-black, easier on the eye than #000"
+      },
+      "--color-slate-muted": {
+        "value": "#86868B",
+        "role": "Secondary body, captions, sub-headlines",
+        "context": "neutral mid-grey, calibrated for legal copy and tertiary info"
+      },
+      "--color-azure-link": {
+        "value": "#0066CC",
+        "role": "Inline links and 'Learn more' CTAs only — never used as surface fill",
+        "context": "Apple-blue, restrained to text affordances"
+      },
+      "--color-cloud-divider": {
+        "value": "#D2D2D7",
+        "role": "Hairline dividers, low-emphasis borders",
+        "context": "warm light grey, near-invisible at scale"
+      },
+      "--color-shadow-surface": {
+        "value": "#F5F5F7",
+        "role": "Alternating section background — gallery cards, secondary surfaces",
+        "context": "barely-warmer-than-white, gives sections breath without weight"
+      }
     },
     "typography": {
-      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+      "--font-display-sf": {
+        "value": "\"SF Pro Display\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "role": "Display headlines — product names at hero scale, eyebrows",
+        "weights": [500, 600, 700],
+        "sizes": "48px / 80px / 96px / 120px hero product titles"
+      },
+      "--font-body-sf": {
+        "value": "\"SF Pro Text\", -apple-system, BlinkMacSystemFont, \"Helvetica Neue\", sans-serif",
+        "role": "Body copy, navigation, captions",
+        "weights": [400, 500, 600],
+        "sizes": "12px / 14px / 17px / 21px"
+      }
     },
     "spacing": {
-      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(16px, 2vw, 22px)",
+      "--space-loose": "clamp(40px, 5vw, 64px)",
+      "--space-section": "clamp(80px, 12vw, 200px)"
+    },
+    "radii": {
+      "--radius-tight": "4px",
+      "--radius-card": "12px",
+      "--radius-product": "18px",
+      "--radius-pill": "9999px"
     }
   },
   "antiPatterns": [
-    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+    "Never use --color-azure-link as a button fill — Apple reserves it strictly for inline text affordances. Buttons are black, white, or transparent with a stroke.",
+    "Never combine more than 2 colors per section — Apple sections are monochromatic except for product imagery. A page with 4+ accent colors stops looking like Apple.",
+    "Body text must never exceed 21px — once body type passes 24px it stops reading as Apple and starts looking like a startup pitch deck.",
+    "Never set --color-graphite-body on --color-jet-anchor — Apple dark sections use pure white text or pure-grey scales. Off-black on black is muddy."
   ]
 }

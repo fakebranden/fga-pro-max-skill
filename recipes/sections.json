@@ -1,10 +1,11 @@
 {
   "$schema": "../recipes.schema.json",
-  "version": "0.1.0",
-  "phase": 1,
-  "status": "placeholder",
+  "version": "0.2.0",
+  "phase": 2,
+  "status": "resolved",
   "filledInPhase": 2,
-  "description": "Per-section recipe table — which library wins for which section, with fallbacks. Filled in Phase 2 (task #66). Phase 1 ships the schema only.",
+  "description": "Per-section recipe table — which library wins for which section, with fallbacks. Phase 2 (task #66) resolved all phase2:tbd placeholders against verified library catalogs.",
+  "lastVerified": "2026-05-31",
   "sections": {
     "hero-video": {
       "default": "vendored:hero-video",
@@ -12,16 +13,19 @@
       "vendoredReason": "Full control over autoplay + muted + playsInline + posterFrame logic. Critical to LCP."
     },
     "hero-animated": {
-      "default": "phase2:tbd",
-      "fallback": "phase2:tbd"
+      "default": "aceternity:hero-highlight",
+      "fallback": "cult-ui:hero-dithering",
+      "notes": "cult-ui has no 'hero-pill' component (Phase 1 plan name) — closest match is the hero-dithering family (split-layout shader heroes with tech-stack badges). Substituted hero-dithering as the fallback. aceternity:hero-highlight verified present in live registry (registry:ui type, deps: mini-svg-data-uri + motion)."
     },
     "features-grid": {
-      "default": "phase2:tbd",
-      "fallback": "phase2:tbd"
+      "default": "cult-ui:feature-carousel",
+      "fallback": "watermelon:bento-1",
+      "notes": "cult-ui has no 'feature-cards' component (Phase 1 plan name) — exposes only feature-carousel / feature-poll / feature-voting. feature-carousel chosen as canonical features-grid default (smooth transitions + customizable layouts, closest to the original intent). watermelon has no 'adaptive-grid' — substituted bento-1 from the 17-variant bento series, which is the closest grid-style fallback."
     },
     "testimonials": {
-      "default": "phase2:tbd",
-      "fallback": "phase2:tbd"
+      "default": "watermelon:testimonials-1",
+      "fallback": "aceternity:infinite-moving-cards",
+      "notes": "cult-ui has NO testimonial component (verified — 'testimonial' substring matches zero entries in the live registry). Reassigned default to watermelon:testimonials-1 (verified present in the 963-entry watermelon registry). aceternity:infinite-moving-cards verified present and retained as fallback per operator's original intent."
     },
     "faq": {
       "default": "vendored:faq-accordion",
@@ -29,12 +33,14 @@
       "vendoredReason": "AEO-critical — schema markup + visible-text Q&A pairing must be controlled. Never delegated."
     },
     "section-template": {
-      "default": "phase2:tbd",
-      "fallback": null
+      "default": "styleui:notio",
+      "fallback": null,
+      "notes": "styleui:notio verified present in the 4-entry styleui registry (animated-list, counter, notio, axis). Whole-section template — hero + features + pricing + footer."
     },
     "loader": {
-      "default": "phase2:tbd",
-      "fallback": "vendored:spinner"
+      "default": "dotmatrix:dotm-square-2",
+      "fallback": "vendored:spinner",
+      "notes": "dotmatrix slug 'pulse-ladder' (Phase 1 plan name) is the human display label — actual install slug is dotm-square-2 (Pulse Ladder is its display name). Verified against the live registry which exposes slugs in the dotm-<shape>-<n> format. 80 individual loaders total + an 'all' meta-package."
     },
     "booking-form": {
       "default": "vendored:booking-form",

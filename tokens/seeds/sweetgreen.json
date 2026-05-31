@@ -1,26 +1,80 @@
 {
-  "$schema": "../../tokens.schema.json",
+  "$schema": "../tokens.schema.json",
   "id": "sweetgreen",
   "name": "Sweetgreen",
-  "description": "Fast-casual food reference — warm earth tones with bright vegetal accent, friendly humanist sans.",
+  "description": "Fast-casual food reference — warm earthen cream and brick-clay backgrounds anchored by deep ink text, vegetal-green signature accent for CTAs. Humanist sans for trust, serif moments for menu storytelling. The palette reads as 'grown, not manufactured'.",
   "source": "https://sweetgreen.com",
   "extractedAt": "2026-05-31",
-  "extractionMethod": "stub-phase-1",
-  "status": "stub",
-  "phase": 1,
-  "filledInPhase": 3,
+  "extractionMethod": "manual-curated",
   "tokens": {
     "colors": {
-      "_phase3_note": "Will be populated by tokens/extract.mjs (Phase 3 task #67) against https://sweetgreen.com"
+      "--color-cream-base": {
+        "value": "#F5F0E1",
+        "role": "Primary light surface — page background, menu card fills",
+        "context": "warm oat-cream, the friendly canvas"
+      },
+      "--color-ink-anchor": {
+        "value": "#0F1F0A",
+        "role": "Primary text on cream + dark sections — reads as black but rooted in green",
+        "context": "deep forest-ink, the trustworthy voice"
+      },
+      "--color-clover-spark": {
+        "value": "#3D8B37",
+        "role": "Signature accent — CTA buttons, key links, leaf iconography",
+        "context": "vegetal green, the brand-defining hue"
+      },
+      "--color-brick-accent": {
+        "value": "#C84B31",
+        "role": "Secondary accent — limited-time menu callouts, seasonal flags",
+        "context": "warm earthen clay, used as a punctuation"
+      },
+      "--color-sage-muted": {
+        "value": "#A8B89B",
+        "role": "Tertiary accents, decorative botanical elements, low-emphasis tags",
+        "context": "muted herb-green for atmosphere"
+      },
+      "--color-graphite-body": {
+        "value": "#4D4D45",
+        "role": "Secondary body text, ingredient descriptions",
+        "context": "warm grey biased toward olive"
+      },
+      "--color-shadow-surface": {
+        "value": "#E8DFC6",
+        "role": "Alternating section background — menu grid, secondary surfaces",
+        "context": "deeper-warm cream, the textural step"
+      }
     },
     "typography": {
-      "_phase3_note": "Display + body fonts extracted from rendered CSS"
+      "--font-display-serif": {
+        "value": "\"Domaine Display\", \"Tiempos Headline\", Georgia, serif",
+        "role": "Display headlines — menu names, hero, editorial titling for ingredient stories",
+        "weights": [400, 600],
+        "sizes": "40px / 64px / 96px"
+      },
+      "--font-body-humanist": {
+        "value": "\"Maison Neue\", \"Inter\", system-ui, sans-serif",
+        "role": "Body copy, navigation, menu item descriptions, nutrition labels",
+        "weights": [400, 500, 600],
+        "sizes": "14px / 16px / 18px"
+      }
     },
     "spacing": {
-      "_phase3_note": "Scale steps inferred from observed margins/paddings"
+      "--space-tight": "clamp(8px, 1vw, 12px)",
+      "--space-base": "clamp(16px, 2vw, 24px)",
+      "--space-loose": "clamp(32px, 4vw, 48px)",
+      "--space-section": "clamp(64px, 8vw, 120px)"
+    },
+    "radii": {
+      "--radius-tight": "6px",
+      "--radius-card": "16px",
+      "--radius-pill": "9999px",
+      "--radius-photo": "24px"
     }
   },
   "antiPatterns": [
-    "Phase 1 stub — real anti-patterns documented in Phase 3 along with token extraction"
+    "Never pair --color-clover-spark and --color-brick-accent in the same section — they fight for the accent role. Pick one per section; brick is for limited-time-only, clover is the default.",
+    "Never set --color-cream-base against pure white — the cream is the brand. Adjacent pure-white surfaces make the cream read as 'dirty paper' instead of 'warm hospitality'.",
+    "Display headlines must use --font-display-serif for menu storytelling moments — humanist sans at display sizes reads as fast food, not fast-casual. Serif is the up-market signal.",
+    "Avoid pure black (#000) anywhere — Sweetgreen's deepest tone is forest-ink (#0F1F0A). True black breaks the 'grown not manufactured' palette story."
   ]
 }

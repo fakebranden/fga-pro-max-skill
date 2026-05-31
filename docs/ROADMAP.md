@@ -21,56 +21,56 @@ directories are scaffolded with schemas + stubs.
 
 ---
 
-## Phase 2 — Component substrate (`registry/`) — task #66
+## Phase 2 — Component substrate ✅ SHIPPED v0.2.0 — task #66
 
 **Goal:** Pin all 7 libraries by SHA + license, build the install script,
 seed the per-section recipe table.
 
-- [ ] `registry/manifest.json` — pinned commit SHAs for all 7 libraries
-- [ ] License audit complete for `watermelon` and `styleui` (Phase 2
+- [x] `registry/manifest.json` — pinned commit SHAs for all 7 libraries
+- [x] License audit complete for `watermelon` and `styleui` (Phase 2
       exit-blocker)
-- [ ] `recipes/sections.json` — per-section default + fallback resolved
-- [ ] `fga-marketing-template/scripts/install-registry-deps.mjs` — reads
+- [x] `recipes/sections.json` — per-section default + fallback resolved
+- [x] `fga-marketing-template/scripts/install-registry-deps.mjs` — reads
       recipe table, runs shadcn add commands, idempotent
-- [ ] Weekly upstream-diff cron → PR
-- [ ] Conflict resolution rules in `recipes/README.md`
+- [x] Weekly upstream-diff cron → PR
+- [x] Conflict resolution rules in `recipes/README.md`
 
 **Effort:** 8h. **Depends on:** Phase 1.
 
 ---
 
-## Phase 3 — Design taste layer (`tokens/`) — task #67
+## Phase 3 — Design taste layer ✅ SHIPPED v0.2.0 — task #67
 
 **Goal:** Build the refero-style token extractor, fill all 8 seed JSONs
 with real values, wire brand-kit `reference_style_url` field.
 
-- [ ] `scripts/extract-tokens.mjs` — Playwright extraction + HSL→named
+- [x] `scripts/extract-tokens.mjs` — Playwright extraction + HSL→named
       adjective heuristic
-- [ ] Fill `tokens/seeds/*.json` for all 8 references with real values
-- [ ] `tokens.schema.json` — JSON schema + validator integration
+- [x] Fill `tokens/seeds/*.json` for all 8 references with real values
+- [x] `tokens.schema.json` — JSON schema + validator integration
 - [ ] Brand kit schema extension in `fga-ai-demo` —
       `reference_style_url?: string` + `tokens?: TokenSet`
-- [ ] Pipeline: kit → tokens → CSS vars + prompt context
+- [x] Pipeline: kit → tokens → CSS vars + prompt context
 
 **Effort:** 10h. **Depends on:** Phase 1. **Parallel-OK with Phases 2, 4.**
 
 ---
 
-## Phase 4 — Niche reasoning rules (`reasoning/`) — task #68
+## Phase 4 — Niche reasoning rules ✅ SHIPPED v0.2.0 — task #68
 
 **Goal:** Fill all 9 niche `.md` files with real content. The biggest
 single-phase effort, mostly writing.
 
-- [ ] `lounge.md` — Bronx Havana Room + Five Bucks reference
-- [ ] `restaurant-bar.md` — Bronx Havana Cafe reference
-- [ ] `mobile-food-truck.md` — Travelin' Tom's reference
-- [ ] `appliance-retail.md` — Appliance Plug reference
-- [ ] `agency-b2b.md` — FGA self-reference
-- [ ] `med-spa-aesthetic.md`
-- [ ] `plumber-hvac.md`
-- [ ] `auto-detail-mobile.md`
-- [ ] `barber-salon.md`
-- [ ] `PROMOTE.md` — one-off rule promotion path
+- [x] `lounge.md` — Bronx Havana Room + Five Bucks reference
+- [x] `restaurant-bar.md` — Bronx Havana Cafe reference
+- [x] `mobile-food-truck.md` — Travelin' Tom's reference
+- [x] `appliance-retail.md` — Appliance Plug reference
+- [x] `agency-b2b.md` — FGA self-reference
+- [x] `med-spa-aesthetic.md`
+- [x] `plumber-hvac.md`
+- [x] `auto-detail-mobile.md`
+- [x] `barber-salon.md`
+- [x] `_PROMOTE.md` — one-off rule promotion path (underscore prefix per validator skip-convention)
 - [ ] Operator review pass on Bronx Havana Room regeneration (≥4/5
       fidelity score)
 
