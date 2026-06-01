@@ -1,10 +1,29 @@
 {
-  "version": "0.2.0",
-  "released": "2026-05-31",
-  "phase": 4,
-  "phaseName": "Substrates filled (Phases 2 + 3 + 4)",
+  "version": "0.3.0",
+  "released": "2026-06-01",
+  "phase": 5,
+  "phaseName": "Pipeline integration (Phases 5 + 8)",
   "status": "alpha",
   "changelog": {
+    "0.3.0": {
+      "date": "2026-06-01",
+      "phase": 5,
+      "changes": [
+        "Phase 5a — NEW REPO: fakebranden/fga-marketing-template (public, GitHub template). Seeded from fga-site-travelin-toms-coffee, fully parameterized — every client-specific string lifted to brand-config.json (nested contact{}, socials{}, a2p{}, ghl{}). SEO+AEO baseline files inherited (seo.ts w/ niche-subtype lookup, sitemap.ts, robots.ts, llms.txt stubs). A2P compliance files inherited (SmsConsent, /api/book audit trail, Privacy mobile-info carve-out, Terms § 6 SMS section). Zero client-reference leaks. is_template=true verified.",
+        "Phase 5a — scripts/enforce-a2p.mjs: build-blocking checker — grep src/**/*.{ts,tsx} for <input type=\"tel\" without <SmsConsent in same file → exit 1 with offending file. Fixture-tested both fail + pass cases. Wired into npm run build.",
+        "Phase 5a — .github/workflows/generate-marketing.yml: full workflow_dispatch with site_slug + hub_base inputs. Vercel-author-locked to 201860651+fakebranden@users.noreply.github.com. End-to-end: hub fetch → npm ci → install-registry-deps → extract-tokens → generate-pages → enforce-a2p → npm run build → commit → trigger-vercel-deploy → hub PATCH.",
+        "Phase 5a — AGENTS.md + README.md + CLAUDE.md docs.",
+        "Phase 5b — fga-ai-demo NEW: src/lib/marketing-site-store.ts (Upstash Redis backing, MarketingSite type, idempotent appendHistory). src/lib/marketing-site-generation.ts (n8n webhook fire-and-forget). POST /api/employee-hub/marketing-site/generate (employee-session auth, niche+reference_style validation, 409 on slug collision). GET/PATCH /api/employee-hub/marketing-site/[slug] (dual auth, status-change auto-history).",
+        "Phase 5c — fga-ai-demo NEW: src/lib/fga-pro-max-skill-block.ts (~340 lines). composeSkillBlock(input) — reads local skill repo, resolves niche, summarises seed tokens, falls back to fga-canonical, enforces per-substrate budgets (2k/3k/1k) with [TRIMMED] markers. Returns { used, niche, reference_style, systemPromptInject, budget }. Skill-dir missing → silent no-op.",
+        "Phase 5c — fga-ai-demo MOD: src/lib/ai-edit.ts (planEdit + generateEdits gain optional systemPromptExtras param). src/app/api/employee-hub/sites/[slug]/ai-edit/route.ts (useSkill body flag, ENV-GATED via FGA_PRO_MAX_DEFAULT_ON, default OFF for 48h soak, SSE event { type: \"data\", key: \"skill\" } for editor UI badge, skillExtras threaded into ALL THREE model calls including the retry).",
+        "Phase 5d (n8n WF-MARKETING-SITE-GEN) DEFERRED to a follow-up session — per n8n patch protocol, prod workflow changes get their own session with backup → mutate-in-place → validate → publish discipline; not bundled with feature work.",
+        "Phase 5e — fga-marketing-template NEW: scripts/generate-pages.mjs (302 lines) — Claude Agent SDK driver. Reads site.json + brand-config.json, merges overrides, loads skill substrate, composes per-page system prompt (skill block + per-page contract), calls claude-sonnet-4-6 via @anthropic-ai/sdk, extracts TSX from fenced block, writes src/app/<route>/page.tsx. PATCHes hub at every status transition.",
+        "Phase 5e — prompts/ directory: home.md, about.md, terms.md, privacy.md, book.md + README. Per-page contracts with {{business_name}}/{{niche}} interpolation. terms.md + privacy.md A2P-locked (carrier-matched sample messages, mobile-info carve-out).",
+        "Phase 5e — package.json: @anthropic-ai/sdk@^0.34.0 added as runtime dep.",
+        "Brand-kit schema extensions in fga-ai-demo: HarvestBrandKit gains reference_style? / reference_style_url? / niche? / tokens? (with new TokenSet type). GeneratedSite gains reference_style? / reference_style_url? / niche?. All optional, backward-compatible.",
+        "Phase 8 — Multi-part reel series: harvest-recipes.ts gains fga-pro-max-tip-series recipe + RecipeSeries + RecipeOutro types + Recipe.series/outro/sourceFocus optionals. harvest-style-presets.ts gains 'Design · FGA Pro Max Tip Reel' preset (full-bleed yellow #f6eb1e bg, italic-serif hooks + bold-sans captions, per-syllable cuts, lower-third talking head). FGA_PRO_MAX_SEED_SERIES const with 3 seeded series (fga-component-libs-5, fga-ghl-plumber-5, fga-lounge-mistakes-5)."
+      ]
+    },
     "0.2.0": {
       "date": "2026-05-31",
       "phase": 4,
